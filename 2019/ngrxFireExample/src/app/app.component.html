@@ -1,0 +1,50 @@
+<router-outlet></router-outlet>
+
+<div style="text-align:center">
+  <h1>{{ message$ | async }}</h1>
+  
+  <button mat-raised-button color="primary" (click)="spanishMessage()">Spanish</button>
+  &nbsp;
+  <button mat-raised-button color="accent" (click)="frenchMessage()">French</button>
+
+  <hr style="width: 300px; margin-left: auto; margin-right: auto; margin-top: 30px;">
+
+  <div *ngIf="post$ | async as p">
+    <h2>{{ p.text }}</h2>
+    <h4>{{ p.likes }}</h4>
+
+    <button mat-raised-button (click)="upvote()">
+      <mat-icon aria-hidden="false" aria-label="Upvote Icon">thumb_up</mat-icon>
+      Upvote
+    </button>
+    &nbsp;
+    <button mat-raised-button (click)="downvote()" [disabled]="p.likes === 0">
+      <mat-icon aria-hidden="false" aria-label="Downvote Icon">thumb_down</mat-icon>
+      Downvote
+    </button>
+    &nbsp;
+    <button mat-raised-button color="warn" (click)="resetPost()">Reset</button>
+    <br>
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Title goes here..." [(ngModel)]="text">
+    </mat-form-field>
+
+    <button mat-button (click)="editText()" [disabled]="text === ''">Change Title</button>
+
+    <hr>
+
+    <mat-form-field>
+      <mat-select placeholder="How Many?">
+        <mat-option>One</mat-option>
+        <mat-option>Two</mat-option>
+        <mat-option>Three</mat-option>
+        <mat-option>Four</mat-option>
+        <mat-option>Five</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+</div>

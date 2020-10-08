@@ -1,0 +1,11 @@
+# Generating a new component:
+ng g c auth/signup --module app.module
+
+ng g c trainig --module app.module
+ng g c training/current-training --module app.module
+ng g c training/new-training --module app.module
+ng g c training/past-trainings --module app.module
+
+ng g c welcome --module app.module
+
+-------------------------------------------------------
