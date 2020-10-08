@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-navbar color="primary">
+
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tinglew</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showToastForLocation()" [hidden]="!showRefreshWarning">
+        <ion-icon name="warning"></ion-icon>
+      </button>
+    <!--
+      <button ion-button icon-only (click)="mapPanToLocation()" [disabled]="!googleMapIsReady">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+    -->
+      <button ion-button icon-only (click)="initMap()" [disabled]="!googleMapIsReady || !showFabNewEvent">
+        <ion-icon name="sync"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="map-page" no-bounce>
+
+  <div ion-fixed style="height: 100%; width: 100%">
+
+    <div [hidden]="!googleMapIsReady" style="height: 110%; width: 100%" #mapCanvas id="map_canvas"></div>
+
+
+    <input type="text" id="searchbar" [class]="showEventActionButtons ? 'show' : 'none'">
+    <div class="marker-controllers" padding *ngIf="showEventActionButtons">
+      <button ion-button color="primary" (click)="presentModal()">Criar Evento</button>
+      <button ion-button color="light" (click)="cancelNewMarker()">Cancelar</button>
+    </div>
+
+    <ion-slides id="eventsSlides" *ngIf="mapEvents.length > 0">
+
+      <ion-slide *ngFor="let mapEvent of mapEvents">
+        <ion-card (click)="mapCenterAt(mapEvent)">
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="http://via.placeholder.com/64x64">
+            </ion-avatar>
+            <h2>{{mapEvent.eventTitle}}</h2>
+            <p>{{mapEvent.distance}} Km <span style="float: right;">11h ago</span></p>
+          </ion-item>
+
+          <!--
+          <img src="http://via.placeholder.com/300x150">
+
+          <ion-card-content *ngIf="mapEvent.eventDescription?.length > 0">
+            <p>{{mapEvent.eventDescription}}</p>
+          </ion-card-content>
+          -->
+
+          <ion-row>
+            <ion-col>
+              <button ion-button color="primary" clear small icon-start>
+                <ion-icon name='thumbs-up'></ion-icon>
+                12 Likes
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button color="primary" clear small icon-start>
+                <ion-icon name='text'></ion-icon>
+                4 Comments
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                Another info.
+              </ion-note>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+
+      </ion-slide>
+
+    </ion-slides>
+
+    <ion-fab top right icon-only>
+      <button ion-fab mini color="primary" (click)="addNewMarker()" [disabled]="!googleMapIsReady || !showFabNewEvent">
+        <ion-icon name="pin"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <!-- <ion-fab top left icon-only>
+      <button ion-fab mini color="warning" (click)="showToastForLocation()" [hidden]="!showRefreshWarning">
+        <ion-icon name="warning"></ion-icon>
+      </button>
+    </ion-fab> -->
+
+    <ion-fab bottom right icon-only class="pan-button">
+      <button ion-fab mini icon-only (click)="mapPanToLocation()" [disabled]="!googleMapIsReady" color="light">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+    </ion-fab>
+
+  </div>
+
+
+
+</ion-content>

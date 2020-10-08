@@ -1,0 +1,7 @@
+{
+  "name": "smartLister",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

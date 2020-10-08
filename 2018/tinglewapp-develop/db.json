@@ -1,0 +1,36 @@
+{
+  "users":[
+    { "email": "flavio.marques.inf@gmail.com"},
+    { "email": "mark@gmail.com"}
+  ],
+  "socialEvents": [
+    {
+      "-L9koz96TGPxkMYI1bMD": {
+        "eventAccess": "Público",
+        "eventDescription": "Rodeio/festa do peão",
+        "eventEndDate": "2018-04-18T18:30:00Z",
+        "eventStartDate": "2018-04-15T00:00:00Z",
+        "eventTicketType": "Entrada gratuita",
+        "eventTitle": "Rodeio",
+        "eventType": "Rodeio",
+        "lat": -21.69339021887765,
+        "lng": -49.71951091271967
+      },
+      "-L9l3wxmFoLRrFYCVvye": {
+        "eventAccess": "Privado",
+        "eventAddress": "Rua nome tal; n. 222",
+        "eventDescription": "teste de apresentação do Pin do evento",
+        "eventEndDate": "2018-04-20",
+        "eventEndTime": "18:00",
+        "eventStartDate": "2018-04-15",
+        "eventStartTime": "18:00",
+        "eventTicketType": "Entrada gratuita",
+        "eventTitle": "Evento teste",
+        "eventType": "Exemplo",
+        "lat": -21.689654704477537,
+        "lng": -49.729953497679105
+      }
+    }
+  ],
+  "signup":[]
+}

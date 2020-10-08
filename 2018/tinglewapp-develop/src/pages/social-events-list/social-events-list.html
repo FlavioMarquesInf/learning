@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{ 'EVENTS_LIST_TITLE' | translate }}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="loadNearbySocialEvents()">
+        <ion-icon name="sync"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<!-- //TODO: mudar mensagem para trecho de tradução; -->
+<ion-content padding>
+  <p *ngIf="!socialEvents">Nenhum evento nas proximidades em {{searchRadiusKm}} km, deseja aumentar o raio de busca? <br>
+    <button ion-button (click)="switchTabs()">Configurações</button>
+  </p>
+
+  <ion-card *ngFor="let socialEvent of socialEvents">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://via.placeholder.com/64x64">
+      </ion-avatar>
+      <h2>{{socialEvent.eventTitle}}</h2>
+      <p>{{socialEvent.distance}} {{socialEvent.distance >= 1.000 ?'Km':'Km'}}
+        <span style="float: right">2d atrás</span>
+      </p>
+    </ion-item>
+
+    <img src="http://via.placeholder.com/300x150">
+
+    <ion-card-content *ngIf="socialEvent.eventDescription?.length > 0">
+      <p>{{socialEvent.eventDescription}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start>
+          <ion-icon name='thumbs-up'></ion-icon>
+          12 Likes
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start>
+          <ion-icon name='text'></ion-icon>
+          4 Comments
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note style="margin-top: 4px;">
+          Other Stat
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

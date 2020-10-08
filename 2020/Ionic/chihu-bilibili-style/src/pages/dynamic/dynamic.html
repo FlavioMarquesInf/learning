@@ -1,0 +1,42 @@
+<ion-header no-border>
+    <ion-navbar>
+        <section class="iheader">
+            <ion-icon name="list" (click)="openMenu()"></ion-icon>
+            <img (click)="openMenu()" class="userimg" [src]="_user.userimg" />
+            <h6>{{_user.name}}</h6>
+            <nav>
+                <ion-icon name="notifications"></ion-icon>
+                <ion-icon name="chatbubbles"></ion-icon>
+                <ion-icon name="search"></ion-icon>
+            </nav>
+        </section>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <section class="share_wrap">
+
+        <div *ngFor="let it of items" class="share" (click)="open( it._id );">
+            <img class="userimg" [src]="it.userimg" alt="">
+            <div class="dec">
+                <p class="name">{{it.uname}}</p>
+                <p>{{it.text}}</p>
+                <div class="imgs_wrap">
+                    <div *ngFor="let itsrc of it.img" class="imgs" [style.background]="'url('+itsrc.src+')'"></div>
+                </div>
+                <div class="bottom">
+                    <span class="time">{{it.time | date}}</span>
+                    <span class="comment">评论：0</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tinglew - Map</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="mapPanToMyLocation()" [disabled]="!mapIsReady">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="map-page">
+  <ion-fab top right *ngIf="showFabNewEvent">
+    <button ion-fab mini color="primary" (click)="addMarker()" [disabled]="!mapIsReady">
+      <ion-icon name="pin"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas"></div>
+
+  <input type="text" id="searchbar" [class]="showEventActionButtons ? 'show' : 'none'">
+  <div class="marker-controllers" padding *ngIf="showEventActionButtons">
+    <button ion-button color="primary" (click)="presentModal()">Criar Evento</button>
+    <button ion-button color="light" (click)="cancelNewMarker()">Cancelar</button>
+  </div>
+
+  <!-- <ion-searchbar *ngIf="showEventActionButtons"></ion-searchbar>(ionInput)="getPlaces($event)" -->
+
+
+</ion-content>

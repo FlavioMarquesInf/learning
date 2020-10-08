@@ -1,0 +1,79 @@
+page-auth {
+  .splash-bg {
+    position: relative;
+    background: url('../assets/img/map-wide-image.png') no-repeat transparent;
+    background-size: cover;
+    height: 38%;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: animatedBackground 50s linear infinite;
+    box-shadow: rgba(100,100,100, .5) 4px 2px 10px;
+  }
+
+  @keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+  }
+
+  .splash-info {
+    position: relative;
+    z-index: 2;
+    margin-top: -224px;
+    text-align: center;
+  }
+  .splash-logo {
+    margin: auto;
+    background: url('../assets/img/marker-flat.fw.png') repeat transparent;
+    background-size: 100%;
+    width: 128px;
+    height: 170px;
+  }
+  .splash-intro {
+    font-size: 18px;
+    font-weight: bold;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #3f8d43
+  }
+  button.login {
+    margin-top: 25px;
+    background-color: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #333;
+
+    &.activated {
+      background-color: rgb(220, 220, 220);
+    }
+  }
+
+  * {transition: all 0.3s ease-in-out;}
+
+  .gray{
+    color: #888 !important;
+  }
+  .no-border {
+    border: none;
+  }
+  .capitalize {
+    text-transform: none !important;
+    //text-transform: capitalize !important;
+    //text-transform: lowercase !important;
+  }
+
+  .font-light {
+    font-weight: lighter !important;
+  }
+
+
+  .message {
+    color: green !important;
+  }
+
+  .auth-buttons-margin-bottom button{
+    margin-bottom: 20px;
+  }
+}

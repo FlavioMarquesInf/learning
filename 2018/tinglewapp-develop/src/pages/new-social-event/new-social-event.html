@@ -1,0 +1,132 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{ 'NEW_EVENT_TITLE' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="createNewSocialEvent(socialEvent)">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<!-- TODO: adicionar variaveis de idioma no lugar das labels -->
+
+<ion-content padding>
+
+  <!-- <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)"
+  /> -->
+  <!-- <div class="profile-image-wrapper" (click)="getPicture()">
+    <div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value">
+      <ion-icon name="add"></ion-icon>
+      <div>
+        {{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}
+      </div>
+    </div>
+    <div class="profile-image" [style.backgroundImage]="http://via.placeholder.com/64x64" *ngIf="this.form.controls.profilePic.value"></div>
+  </div> -->
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="create"></ion-icon> Titulo
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="socialEvent.eventTitle" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="create"></ion-icon> Descrição
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="socialEvent.eventDescription"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pricetag"></ion-icon> Acesso
+      </ion-label>
+      <ion-select [(ngModel)]="socialEvent.eventAccess" okText="Ok" cancelText="Cancelar">
+        <ion-option value="Público" selected>Público</ion-option>
+        <ion-option value="Privado">Privado</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="create"></ion-icon> Tipo de Evento
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="socialEvent.eventType"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar"></ion-icon> Data do Início
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="socialEvent.eventStartDate" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="clock"></ion-icon> Hora do Início
+      </ion-label>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="socialEvent.eventStartTime" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar"></ion-icon> Data do Término
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="socialEvent.eventEndDate" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar"></ion-icon> Hora do Término
+      </ion-label>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="socialEvent.eventEndTime" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pricetag"></ion-icon> Tipo de Ingresso
+      </ion-label>
+      <ion-select [(ngModel)]="socialEvent.eventTicketType" okText="Ok" cancelText="Cancelar">
+        <ion-option value="Pague no evento">Pague no evento</ion-option>
+        <ion-option value="Entrada gratuita">Entrada gratuíta</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pricetag"></ion-icon> Valor do Ingresso
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="socialEvent.eventTicketPrice"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="paper"></ion-icon> Política de Reembolso
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="socialEvent.eventRefundPolicy"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pin"></ion-icon> Local/Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="socialEvent.eventAddress"></ion-input>
+    </ion-item>
+
+    <img [src]="staticMapUrl">
+  </ion-list>
+
+  <button ion-button block (click)="createNewSocialEvent(socialEvent)">Salvar Evento</button>
+
+</ion-content>

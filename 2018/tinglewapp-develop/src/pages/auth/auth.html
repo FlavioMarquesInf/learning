@@ -1,0 +1,53 @@
+<ion-content scroll="false">
+  <div class="splash-bg"></div>
+  <div class="splash-info">
+    <div class="splash-logo"></div>
+  </div>
+
+<ion-card>
+  <ion-card-content>
+
+  <div padding>
+    <div class="splash-intro">
+      {{ 'WELCOME_INTRO' | translate }}
+    </div>
+
+    <form>
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>
+            {{ 'EMAIL' | translate }}
+            <!-- <span class="">{{'está sendo verificado...'}}</span> -->
+            <span class="message">{{'disponível!'}}</span>
+          </ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        </ion-item>
+
+        <div class="auth-buttons-margin-bottom" padding>
+          <button ion-button block round color="primary" (click)="doLogin(user)">
+            {{ 'LOGIN_BUTTON' | translate }}
+          </button>
+          <button ion-button block outline round color="primary" (click)="doSignIn(user)">
+            {{ 'SIGNUP' | translate }}
+          </button>
+          <button ion-button block outline class="no-border capitalize font-light gray">
+            {{ 'FORGET_PASSWORD_QUESTION' | translate }}
+          </button>
+        </div>
+
+      </ion-list>
+
+    </form>
+
+  </div>
+
+  </ion-card-content>
+</ion-card>
+</ion-content>
+

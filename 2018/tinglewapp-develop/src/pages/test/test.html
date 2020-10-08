@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tinglew - Test</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="test(value)">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="test(value)">
+        <ion-icon name="map"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button ion-button icon-only (click)="test()">
+    <ion-icon name="locate"></ion-icon>
+  </button>
+
+  <ion-item>
+    <ion-label>Value</ion-label>
+    <ion-input type="text" [(ngModel)]="value"></ion-input>
+  </ion-item>
+  {{items | json}}
+</ion-content>

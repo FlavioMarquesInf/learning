@@ -1,0 +1,74 @@
+page-map ion-content {
+  background: rgb(229, 227, 223);
+}
+
+page-map {
+  #map_canvas {
+    height: 500px;
+    width: 320px;
+    background-color : transparent;
+  }
+
+  .marker-controllers {
+    float: left;
+    margin-top: -130px;
+  }
+
+  #searchbar {
+    position: absolute;
+    margin-top: -512px;
+    margin-left: 20px;
+    display: none;
+  }
+
+  .show {
+    display: flex;
+  }
+
+}
+
+page-map ion-content {
+  background: rgb(229, 227, 223);
+}
+
+page-map #map_canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 150ms ease-in
+}
+
+page-map #map_canvas.show-map {
+  opacity: 1;
+}
+
+ion-app._gmaps_cdv_ .nav-decor{
+  background-color: transparent !important;
+}
+
+
+
+#eventsSlides {
+  margin-top: -200px;
+}
+
+
+.slide-zoom {
+  // height:200px;
+  height: 100%;
+  // overflow:hidden;
+}
+
+
+//TODO: fazer essa regra valer quando os cards forem carregados
+.pan-button-top-position {
+  top: 60%;
+}
+
+.md,
+.ios,
+.wp {
+    .swiper-slide .swiper-slide-active{
+        width: 100px;//your width here
+    }
+  }

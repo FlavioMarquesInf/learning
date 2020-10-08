@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Angular Map</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)" options="options">
+
+    <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng"
+      [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)" [iconUrl]="'http://www.clker.com/cliparts/q/y/S/n/A/V/green-pin-th.png'">
+
+      <agm-info-window>
+        <strong>{{m.info}}</strong>
+      </agm-info-window>
+
+    </agm-marker>
+
+    <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="false" [editable]="true">
+    </agm-circle>
+
+  </agm-map>
+</ion-content>

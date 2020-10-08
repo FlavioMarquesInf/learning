@@ -1,0 +1,7 @@
+{
+  "name": "firebaseCrud",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

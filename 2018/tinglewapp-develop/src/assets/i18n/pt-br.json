@@ -1,0 +1,89 @@
+{
+  "BACK_BUTTON_TEXT": "Voltar",
+  "CLOSE_BUTTON_TEXT": "Fechar",
+
+  "NETWORK_DISCONNECTED_MESSAGE": "Rede desconectada. :-(",
+  "NETWORK_CONNECTED_MESSAGE": "Rede conectada!",
+  "WIFI_CONNECTED_MESSAGE": "Temos conexão wifi, woohoo!",
+  "WIFI_DISCONNECTED_MESSAGE": "Não está conectado na rede wifi.",
+
+  "NAME": "Nome",
+  "EMAIL": "Email",
+  "USERNAME": "Nome de usuário",
+  "PASSWORD": "Senha",
+  "LOGIN": "Entrar",
+  "SIGNUP": "Criar Conta Gratuíta",
+
+  "TAB1_TITLE": "Eventos",
+  "TAB2_TITLE": "Mapa",
+  "TAB3_TITLE": "Configurações",
+
+  "MAP_TITLE": "Mapa",
+
+  "TUTORIAL_SKIP_BUTTON": "Pular",
+  "TUTORIAL_CONTINUE_BUTTON": "Continuar",
+
+  "TUTORIAL_SLIDE1_TITLE": "Bem-vindo ao Tinglew",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "O <b>Tinglew</b> é um aplicativo que te ajuda a encontrar eventos nas proximidades.",
+
+  "TUTORIAL_SLIDE2_TITLE": "Autenticação de usuário",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Para interagir com os eventos, com curtidas e comentários você deve estar autenticado.",
+
+  "TUTORIAL_SLIDE3_TITLE": "Abelobaa",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Precisa de ajuda? Dê uma olhada no README do Super Starter para um tutorial completo",
+
+  "TUTORIAL_SLIDE4_TITLE": "Pronto para Usar?",
+
+  "WELCOME_INTRO": "Bem vindo ao Tinglew",
+
+  "SETTINGS_TITLE": "Configurações",
+  "SETTINGS_OPTION1": "Rodar em segundo plano",
+  "SETTINGS_OPTION2": "Opção 2",
+  "SETTINGS_OPTION3": "Opção 3",
+  "SETTINGS_OPTION4": "Opção 4",
+
+  "SETTINGS_PROFILE_BUTTON": "Editar Perfil",
+
+  "SETTINGS_PAGE_PROFILE": "Editar Perfil",
+
+  "WELCOME_TITLE": "Bem-vindo",
+
+  "LOGIN_TITLE": "Entrar",
+  "LOGIN_ERROR": "Não foi possível entrar na sua conta. Verifique seus dados e tente novamente.",
+  "LOGIN_ERROR_WRONG": "A senha está incorreta.",
+  "LOGIN_BUTTON": "Entrar",
+
+  "SIGNUP_TITLE": "Cadastre-se",
+  "SIGNUP_ERROR": "Não foi possível criar sua conta. Verifique seus dados e tente novamente.",
+  "SIGNUP_ERROR_INVALID": "Email inválido.",
+  "SIGNUP_ERROR_ALREADYINUSE": "Este email já está sendo usado em outra conta.",
+  "SIGNUP_ERROR_WEAK": "A senha deve conter pelo menos 6 caracteres.",
+
+  "SIGNUP_BUTTON": "Cadastre-se",
+
+  "LIST_MASTER_TITLE": "Itens",
+
+  "ITEM_CREATE_TITLE": "Novo Item",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Adicionar Imagem",
+
+  "ITEM_NAME_PLACEHOLDER": "Nome",
+  "ITEM_ABOUT_PLACEHOLDER": "Sobre",
+
+  "DONE_BUTTON": "Pronto",
+  "CANCEL_BUTTON": "Cancelar",
+  "DELETE_BUTTON": "Apagar",
+
+  "FORGET_PASSWORD_QUESTION":"Esqueceu a senha?",
+
+  "EVENTS_LIST_TITLE": "Eventos",
+
+  "NEW_EVENT_TITLE": "Novo Evento",
+
+  "LOCATION_ALERT_CONFIRM_TITLE": "Ativar Localização?",
+  "LOCATION_ALERT_CONFIRM_MESSAGE": "Sua localização está desativada no momento, você pode melhorar sua experiencia ativando esta opção.",
+  "LOCATION_ALERT_CONFIRM_BUTTON_CANCEL": "Cancelar",
+  "LOCATION_ALERT_CONFIRM_BUTTON_ACTIVATE": "Ativar",
+
+  "MAP_USER_LOCATION_INFOWINDOW": "Você está aqui!"
+
+}
