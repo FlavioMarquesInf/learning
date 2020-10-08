@@ -1,0 +1,7 @@
+{
+  "name": "ion-ng-cap-android-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,59 @@
+{
+  "name": "firelist-react",
+  "version": "0.0.0",
+  "description": "The Firelist demo app implemented in React",
+  "keywords": [],
+  "homepage": "https://codesandbox.io/s/github/how-to-firebase/firelist-react",
+  "main": "src/index.js",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "firebase-tools": "^3.18.4",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.1.0",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
+    "node": "6.14.2",
+    "react": "^16.3.2",
+    "react-dates": "^16.6.1",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "4.2.2",
+    "rmwc": "1.4.1",
+    "rxjs": "^6.0.0",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "unistore": "3.0.4",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --env.development",
+    "build": "rm -rf dist && cp -R public dist && webpack --mode production",
+    "build:windows": "xcopy public dist /E /Y & webpack --mode production",
+    "firebase:login": "firebase login",
+    "deploy": "npm run build && firebase deploy",
+    "deploy:windows": "npm run build:windows && firebase deploy",
+    "deploy:database": "firebase deploy --only database",
+    "deploy:firestore": "firebase deploy --only firestore",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:storage": "firebase deploy --only storage",
+    "v": "node --version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/how-to-firebase/firelist-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/how-to-firebase/firelist-react/issues"
+  }
+}

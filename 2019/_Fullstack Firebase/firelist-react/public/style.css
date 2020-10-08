@@ -1,0 +1,195 @@
+/* Global */
+::selection {
+  color: var(--colors-white);
+  background: var(--mdc-theme-primary);
+}
+
+h1 {
+  font-weight: 900;
+}
+
+p {
+  color: var(--colors-text);
+}
+
+p svg {
+  fill: var(--colors-text);
+}
+
+label {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.00937em;
+}
+
+svg.avatar {
+  fill: var(--colors-white);
+  background: var(--colors-gray);
+}
+
+svg[is-active='true'] {
+  fill: var(--mdc-theme-secondary);
+}
+
+svg[is-active='false'] {
+  fill: none;
+  stroke: var(--mdc-theme-secondary);
+}
+
+svg[highlight='true'] {
+  fill: var(--mdc-theme-secondary-light);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Hover  */
+[show-on-hover] {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+
+[hover-target]:hover [show-on-hover] {
+  opacity: 1;
+}
+
+/* Focus */
+[show-on-focus] {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+
+[focus-target]:focus [show-on-focus],
+[show-on-focus]:focus {
+  opacity: 1;
+}
+
+/* Progress Bar */
+.progress-bar {
+  height: 4px;
+}
+
+.progress-bar.background {
+  background: var(--mdc-theme-secondary-light);
+}
+
+.progress-bar > div {
+  background: var(--mdc-theme-secondary);
+  height: 100%;
+  transition: width 500ms ease-in;
+}
+
+/* MDC button */
+.mdc-list .mdc-button {
+  color: var(--colors-gray);
+}
+
+/* MDC links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mdc-list-item--selected a {
+  cursor: default;
+}
+
+/* MDC svg */
+.mdc-list svg {
+  fill: var(--colors-gray);
+}
+
+.mdc-list-item--selected svg {
+  fill: var(--mdc-theme-primary);
+}
+
+/* MDC fab */
+.mdc-fab svg {
+  fill: white;
+}
+
+/* MDC form field */
+.mdc-form-field {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.mdc-form-field ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.mdc-form-field .mdc-text-field {
+  width: 100%;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-secondary-dark);
+}
+
+/* React Dates */
+.DayPickerKeyboardShortcuts_show__bottomRight {
+  border-right-color: var(--mdc-theme-secondary-dark) !important;
+}
+
+/* Material Design Spinner */
+/* https://codepen.io/mrrocks/pen/EiplA */
+.md-spinner {
+  animation: rotator 1.4s linear infinite;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+.md-spinner .path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285f4;
+  }
+  25% {
+    stroke: #de3e35;
+  }
+  50% {
+    stroke: #f7c223;
+  }
+  75% {
+    stroke: #1b9a59;
+  }
+  100% {
+    stroke: #4285f4;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ion-ng-cap-android-demo</string>
+    <string name="title_activity_main">ion-ng-cap-android-demo</string>
+    <string name="package_name">com.flaviomarquesdev.ionngcapandroiddemo</string>
+    <string name="custom_url_scheme">com.flaviomarquesdev.ionngcapandroiddemo</string>
+</resources>
