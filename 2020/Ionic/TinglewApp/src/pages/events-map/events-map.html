@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>eventsMap</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="mapPanToMyLocation()" [disabled]="!mapIsReady">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="removeMarker()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <agm-map #agmMap
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="true"
+  (mapClick)="mapClicked($event)">
+
+    <agm-marker
+    *ngFor="let m of markers; let i = index"
+    (markerClick)="clickedMarker(m.label, i, m)"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [label]="m.label"
+    [markerDraggable]="m.draggable"
+    (dragEnd)="markerDragEnd(m, $event)">
+      <!--
+        [iconUrl]="'./assets/img/public-event.fw.png'"
+
+         [iconUrl]="'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'"
+        http://www.clker.com/cliparts/q/y/S/n/A/V/green-pin-th.png
+      -->
+
+      <agm-info-window>
+        <strong>{{m.eventTitle}}</strong>
+        <p>{{m.lat}}</p>
+        <p>{{m.lng}}</p>
+      </agm-info-window>
+
+    </agm-marker>
+
+    <agm-circle
+      [latitude]="lat + 0.3"
+      [longitude]="lng"
+      [radius]="5000"
+      [fillColor]="'red'"
+      [circleDraggable]="false"
+      [editable]="true">
+    </agm-circle>
+
+  </agm-map>
+</ion-content>

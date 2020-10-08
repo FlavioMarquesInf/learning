@@ -1,0 +1,114 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Evento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="create"></ion-icon> Titulo
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="mapEvent.eventTitle" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="create"></ion-icon> Descrição
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="mapEvent.eventDescription"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pricetag"></ion-icon> Acesso
+      </ion-label>
+      <ion-select [(ngModel)]="mapEvent.eventAccess" okText="Ok" cancelText="Cancelar">
+        <ion-option value="Público" selected>Público</ion-option>
+        <ion-option value="Privado">Privado</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="create"></ion-icon> Tipo de Evento
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="mapEvent.eventType"></ion-input>
+    </ion-item>
+
+    
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar"></ion-icon> Data do Início
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="mapEvent.eventStartDate" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="clock"></ion-icon> Hora do Início
+      </ion-label>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="mapEvent.eventStartTime" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar"></ion-icon> Data do Término
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="mapEvent.eventEndDate" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="calendar"></ion-icon> Hora do Término
+      </ion-label>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="mapEvent.eventEndTime" doneText="Ok" cancelText="Cancelar"></ion-datetime>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pricetag"></ion-icon> Tipo de Ingresso
+      </ion-label>
+      <ion-select [(ngModel)]="mapEvent.eventTicketType" okText="Ok" cancelText="Cancelar">
+        <ion-option value="Pague no evento">Pague no evento</ion-option>
+        <ion-option value="Entrada gratuita">Entrada gratuíta</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pricetag"></ion-icon> Valor do Ingresso
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="mapEvent.eventTicketPrice"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="paper"></ion-icon> Política de Reembolso
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="mapEvent.eventRefundPolicy"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>
+        <ion-icon name="pin"></ion-icon> Local/Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="mapEvent.eventAddress"></ion-input>
+    </ion-item>
+
+    <img [src]="mapUrl">
+  </ion-list>
+  
+  <button ion-button block (click)="addEvent(mapEvent)">Salvar Evento</button>
+
+</ion-content>
