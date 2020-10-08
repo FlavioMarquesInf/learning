@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+      <small>{{ comments.length }} people have commented.</small>
+    </ion-title>
+    <ion-buttons slot="start" (click)="dismissModal()">
+      <ion-back-button defaultHref="feed"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item  *ngFor="let comment of comments">
+    <ion-icon name="chatbubbles" color="danger" style="margin-right: 6px;"></ion-icon>
+    <ion-label text-wrap>
+      <ion-text color="danger">
+        <h3><strong>{{ comment.data().text }}</strong></h3>
+      </ion-text>
+      <p>
+        <small>
+          {{ comment.data().owner_name }} 
+          <i>{{ comment.data().created.toDate() | dfnsDistanceInWordsToNow }}</i>
+        </small>
+      </p>
+    </ion-label>
+  </ion-item>
+
+</ion-content>

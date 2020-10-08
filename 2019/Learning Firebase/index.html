@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDwaf0hHqFF8LHMcSELYp8PlIRt5KmVFMw",
+            authDomain: "ynad-9d20f.firebaseapp.com",
+            databaseURL: "https://ynad-9d20f.firebaseio.com",
+            projectId: "ynad-9d20f",
+            storageBucket: "ynad-9d20f.appspot.com",
+            messagingSenderId: "1057532324530"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Learning Firebase</h1>
+    <div class="link-form">
+        <form>
+            <input type="text" class="link-title" placeholder="link title..."/>
+            <input type="text" class="link-url" placeholder="link url..."/>
+            <input type="submit" value="submit"/>
+        </form>
+    </div>
+
+    <div class="links">
+        <ul class="links-list"></ul>
+    </div>
+</body>
+</html>

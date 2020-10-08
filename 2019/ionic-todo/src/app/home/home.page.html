@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Ionic ToDo
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button><ion-icon slot="icon-only" name="add-circle"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item [href]="'/checklists/' + value" routerDirection="forward">
+    <ion-label>Enviar "{{value}}" para página checklists.</ion-label>
+  </ion-item>
+
+
+  <!-- <ion-list lines="none">
+    <ion-item-sliding *ngFor="let checklist of dataService.checklist">
+      <ion-item [href]="'/checklists/' + checklist.id" routerDirection="forward">
+        <ion-label>{{checklist.title}}</ion-label>
+        <span>{{checklist.items.length}} items</span>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="green" expandable (click)="renameChecklist(checklist)">
+          <ion-icon slot="icon-only" name="pen"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" expandable (click)="removeChecklist(checklist)">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
+</ion-content>

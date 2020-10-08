@@ -1,0 +1,18 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": true,
+    "importHelpers": true,
+    "outDir": "dist",
+    "lib": ["es2015", "dom"],
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "module": "es2015",
+    "target": "es5",
+    "typeRoots": ["../node_modules/@types"]
+  },
+  "include": ["src"],
+  "exclude": ["dist/**/*", "spec/**/*"]
+}

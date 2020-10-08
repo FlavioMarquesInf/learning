@@ -1,0 +1,8 @@
+{
+  "name": "Feedly",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "de851df0"
+}

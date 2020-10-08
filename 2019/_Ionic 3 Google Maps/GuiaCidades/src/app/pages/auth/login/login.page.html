@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide 
+      *ngFor="let bg of backgrounds"
+      [ngStyle]="{'background-image': 'url(' + bg + ')'}"
+      class="slide-background swiper-no-swiping">
+
+      <h1>Slide 1</h1>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,32 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /notes/{noteId} {
+    	allow read: if isAuthenticated() && isNoteOwner()
+    	allow create: if isAuthenticated() && isNoteValid()
+
+      match /todos/{todoId} {
+        allow read, write: if isAuthenticated()
+      }
+    }
+    
+    // Functions
+    function isAuthenticated() {
+    	return request.auth.uid != null
+    }
+    
+    function isNoteValid() {
+    	return incomingRequestData().title is string &&
+      			 incomingRequestData().title.size() > 0 &&
+             incomingRequestData().owner.id == request.auth.uid
+    }
+
+    function incomingRequestData() {
+      return request.resource.data
+    }
+
+    function isNoteOwner() {
+    	return resource.data.owner.id == request.auth.uid
+    }
+  }
+}

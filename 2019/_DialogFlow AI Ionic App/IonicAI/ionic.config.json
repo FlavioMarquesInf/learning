@@ -1,0 +1,7 @@
+{
+  "name": "IonicAI",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

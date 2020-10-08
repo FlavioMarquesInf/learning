@@ -1,0 +1,74 @@
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate" color="accent" class="app-loading-state"></mat-progress-bar>
+</ng-template>
+
+<ng-container *ngIf="note$ | async; let note; else loading">
+  <mat-card class="has-card-actions">
+    <mat-card-header>
+      <mat-card-title>
+        <button mat-icon-button type="button" (click)="navigateToPreviousPage() " class="btn-back">
+          <mat-icon aria-label="An icon-button with a arrow icon">keyboard_arrow_left</mat-icon>
+        </button>
+
+        <textarea 
+          matInput 
+          [value]="note.title"
+          matTextareaAutosize 
+          matAutosizeMinRows="1"
+          matAutosizeMaxRows="2"
+          placeholder="Title"
+          (blur)="updateNoteTitle($event)"></textarea>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="note-field">
+        <mat-form-field
+          floatLabel="never"
+          color="accent">
+          <textarea matInput 
+                    placeholder="Add note..." 
+                    matTextareaAutosize 
+                    matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"
+                    [value]="note.description || null"
+                    (blur)="updateNoteDescription($event)"></textarea>
+        </mat-form-field>
+      </div>
+
+      <span *ngIf="note.dueDate" class="note-metadata note-duedate">
+        <mat-icon>flag</mat-icon> {{note.dueDate | date}}
+
+        <button mat-icon-button color="warn" type="button" (click)="removeDueDate()">
+          <mat-icon aria-label="An icon-button with a cancel icon">cancel</mat-icon>
+          </button>
+      </span>
+
+      <span *ngIf="note.location" class="note-metadata clean">
+        <mat-icon>place</mat-icon> {{note.location}}
+      </span>
+
+      <app-todos [noteId]="noteId"></app-todos>
+
+      <p class="note-archived" *ngIf="note.archived">Note has been archived</p>
+    </mat-card-content>
+
+    <mat-card-actions class="app-actions app-note-actions">
+      <button mat-icon-button type="button" (click)="dueDatePicker.open()">
+        <mat-icon aria-label="An icon-button with a clock icon">today</mat-icon>
+      </button>
+      <input matInput [min]="minNoteDueDate" [matDatepicker]="dueDatePicker" class="date-picker-calendar-only" (dateChange)="updateNoteDueDate($event)" [value]="note.dueDate">
+      <mat-datepicker #dueDatePicker></mat-datepicker>
+
+      <button mat-icon-button type="button" (click)="toggleNoteArchive(note)">
+        <mat-icon aria-label="An icon-button with a archive/unarchive icon">{{note?.archived ? 'una' : 'a'}}rchive</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" type="button" (click)="deleteNote()">
+        <mat-icon aria-label="An icon-button with a trash icon">delete_forever</mat-icon>
+      </button>
+
+      <button mat-button type="button" routerLink="/notes">Done</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

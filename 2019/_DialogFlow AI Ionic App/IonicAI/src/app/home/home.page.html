@@ -1,0 +1,44 @@
+<ion-header hidden>
+  <ion-toolbar>
+    <ion-title>
+      Ionic AI
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background-color: #444;">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-icon name="mic"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<ion-list no-lines class="chat-list" style="background-color: transparent">
+    <ion-item *ngFor="let message of messages" class="chat-item">
+      <ion-avatar item-left *ngIf="message.sender == 'api'">
+        <img src="https://avatars2.githubusercontent.com/u/3171503?s=400&v=4">
+      </ion-avatar>
+      <ion-avatar item-right *ngIf="message.sender == 'me'">
+        <img src="https://cdn.dribbble.com/users/533826/screenshots/4509144/ai_dribbble_images-03.jpg">
+      </ion-avatar>
+      <div *ngIf="message.sender == 'api'" class="bubble me">
+        <h3> {{message.text}} </h3>
+      </div>
+      <div *ngIf="message.sender == 'me'" class="bubble you">
+        <h3> {{message.text}} </h3>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input type="text" placeholder="Your message here..."></ion-input>
+      <ion-button fill="clear" round item-right>
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
