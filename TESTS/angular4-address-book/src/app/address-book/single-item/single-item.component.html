@@ -1,0 +1,40 @@
+<div class="box">
+  <h3>{{ singleItem.name }}</h3>
+  <table>
+    <tr>
+      <td>Email</td>
+      <td>:</td>
+      <td>{{ singleItem.email }}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>:</td>
+      <td>{{ singleItem.phone }}</td>
+    </tr>
+    <tr>
+      <td>Website</td>
+      <td>:</td>
+      <td>
+        <a [href]="singleItem.website" target="_blank">{{
+          singleItem.website
+        }}</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Company</td>
+      <td>:</td>
+      <td>{{ singleItem.company.name }}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>:</td>
+      <td>
+        {{ singleItem.address.street }} {{ singleItem.address.suite }}
+        {{ singleItem.address.city }} {{ singleItem.address.zipcode }}
+      </td>
+    </tr>
+  </table>
+
+  <button routerLink="/edit/{{ singleItem.id }}">Edit</button>
+  <button (click)="deleteAddressBook()">Delete</button>
+</div>

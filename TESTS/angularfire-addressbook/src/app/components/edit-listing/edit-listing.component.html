@@ -1,0 +1,35 @@
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of items | async">
+    <h2 class="page-header">{{item.name}}</h2>
+
+    <!--Name-->
+    <div class="row">
+      <div class="col-sm-1"><p><strong>Name: </strong></p></div>
+      <div class="col-sm-8"><input class="col-sm-12 form-control" type="text" value="{{item.name}}"></div>
+    </div>
+
+    <!--Email-->
+    <div class="row">
+      <div class="col-sm-1"><p><strong>Email: </strong></p></div>
+      <div class="col-sm-8"><input class="col-sm-12 form-control" type="text" value="{{item.email}}"></div>
+    </div>
+
+    <!--Mobile-->
+    <div class="row">
+      <div class="col-sm-1"><p><strong>Mobile: </strong></p></div>
+      <div class="col-sm-8"><input class="col-sm-12 form-control" type="text" value="{{item.mobile}}"></div>
+    </div>
+
+    <!--Address-->
+    <div class="row">
+      <div class="col-sm-1"><p><strong>Address: </strong></p></div>
+      <div class="col-sm-8"><input class="col-sm-12 form-control" type="text" value="{{item.address}}"></div>
+    </div>
+
+    <!--Update/Del buttons-->
+    <div class="editDel row">
+      <div class="col-sm-2"><button class="btn-primary col-sm-12">Update</button></div>
+      <div class="col-sm-2"><button class="btn-danger col-sm-12" (click)="deleteObject(this.item.$key)">Delete</button></div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,24 @@
+.list-group {
+  p {
+    margin-bottom: 2px;
+  }
+}
+
+.editDel {
+  padding: 1em 0;
+  width: 80%;
+  .col-sm-2:first-of-type {
+    @media (min-width: 770px) {
+      padding-right: 0.1em;
+    }
+  }
+  .col-sm-2:nth-of-type(2) {
+    @media (min-width: 770px) {
+      padding-left: 0.1em;
+    }
+  }
+}
+
+button {
+ width: 100%;
+}

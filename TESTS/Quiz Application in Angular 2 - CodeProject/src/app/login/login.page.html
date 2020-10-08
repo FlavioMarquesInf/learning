@@ -1,0 +1,37 @@
+<ion-content padding>
+  <ion-item lines="none">
+    <ion-img src="assets/buss.png"></ion-img>
+  </ion-item>
+
+  <h1 text-center>NoPonto</h1>
+  <h6 text-center>Mapeando Pontos de Onibus</h6>
+  <ion-grid style="width: 75%">
+    <ion-row class="rowStyle">
+      <ion-icon name="mail" color="primary"></ion-icon>
+      <ion-input type="email" [(ngModel)]="loginData.email" placeholder="seu email"></ion-input>
+    </ion-row>
+
+    <ion-row class="rowStyle">
+      <ion-icon name="key" color="primary"></ion-icon>
+      <ion-input type="password" [(ngModel)]="loginData.password" placeholder="sua senha"></ion-input>
+    </ion-row>
+
+    <ion-button (click)="doLogin()" color="light" expand="block" shape="round" fill="outline" color="light" style="margin-top: 20px;">Entrar</ion-button>
+    <p text-center>
+      <ion-button shape="round" style="margin: auto" color="secondary" (click)="login()">
+        <ion-icon color="danger" name="logo-googleplus" style="padding-right: 4px"></ion-icon>
+        Login com Google
+      </ion-button>
+    </p>
+      
+
+  </ion-grid>
+
+  <ion-button href="/signup" expand="block" shape="round" fill="none" color="light" style="margin-top: 20px; color: #fff; text-transform: initial">Não
+    tem uma conta? <br> Inscreva-se gratuitamente!
+  </ion-button>
+  
+  <!-- <google-login></google-login> -->
+
+ 
+</ion-content>

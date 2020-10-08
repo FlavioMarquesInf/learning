@@ -1,0 +1,36 @@
+.people-component-wrap {
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; 
+    margin: 0px 10px;
+    min-width: 20%;
+    padding: 30px;
+} 
+
+.people-list-component-wrap {
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; 
+    margin: 0px 10px;
+    padding: 30px;
+} 
+
+// Disable Bootstrap class (form-control) features for Material 
+.form-control {
+    padding: 0px !important;
+    border: 0px !important;
+    margin: 0px !important;
+    background: none !important;
+    border-radius: 0px!important;
+    top: 0px!important;
+    bottom: 0px!important;
+    outline: none!important;
+    box-shadow: none!important;
+    height: 17px!important;
+    transition: none!important;
+    
+
+} 
+
+
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 25px!important;
+    }
+}

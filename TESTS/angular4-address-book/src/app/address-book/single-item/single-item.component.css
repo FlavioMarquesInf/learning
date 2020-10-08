@@ -1,0 +1,16 @@
+ul {
+  list-style: none;
+}
+h3 {
+  text-align: center;
+}
+
+.box {
+  width: 300px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+table td {
+  vertical-align: baseline;
+}

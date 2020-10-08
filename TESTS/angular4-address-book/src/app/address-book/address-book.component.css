@@ -1,0 +1,8 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.notFound {
+  font-size: 30px;
+  font-weight: 400;
+}

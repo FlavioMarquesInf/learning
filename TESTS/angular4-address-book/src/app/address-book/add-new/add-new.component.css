@@ -1,0 +1,14 @@
+fieldset {
+  border: 1px solid #999;
+}
+
+.validator {
+  background: rgb(219, 25, 25);
+  color: white;
+  padding: 5px;
+  font-weight: 400;
+  text-align: center;
+}
+.flex {
+  display: flex;
+}

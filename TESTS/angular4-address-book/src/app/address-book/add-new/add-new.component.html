@@ -1,0 +1,234 @@
+<form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+  <table>
+    <tr>
+      <td>Name *</td>
+      <td>:</td>
+      <td class="flex">
+        <input
+          name="name"
+          type="text"
+          [(ngModel)]="singleItemPost.name"
+          #userRef="ngModel"
+          required
+        />
+        <div *ngIf="!userRef.valid && userRef.touched" class="validator">
+          Please fill your name
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Email *</td>
+      <td>:</td>
+      <td class="flex">
+        <input
+          name="email"
+          type="email"
+          [(ngModel)]="singleItemPost.email"
+          #emailRef="ngModel"
+          required
+          email
+        />
+        <div *ngIf="!emailRef.valid && emailRef.touched" class="validator">
+          Email not valid!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Phone *</td>
+      <td>:</td>
+      <td class="flex">
+        <input
+          name="phone"
+          type="text"
+          [(ngModel)]="singleItemPost.phone"
+          #phoneRef="ngModel"
+          required
+        />
+        <div *ngIf="!phoneRef.valid && phoneRef.touched" class="validator">
+          Phone not valid!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Website *</td>
+      <td>:</td>
+      <td class="flex">
+        <input
+          name="website"
+          type="text"
+          [(ngModel)]="singleItemPost.website"
+          #websiteRef="ngModel"
+          required
+        />
+        <div *ngIf="!websiteRef.valid && websiteRef.touched" class="validator">
+          Website not valid!
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Company</td>
+      <td>:</td>
+      <td>
+        <fieldset ngModelGroup="company">
+          <table>
+            <tr>
+              <td><label>Name *</label></td>
+              <td>:</td>
+              <td class="flex">
+                <input
+                  name="name"
+                  type="text"
+                  [(ngModel)]="singleItemPost.company.name"
+                  #companyNameRef="ngModel"
+                  required
+                />
+                <div
+                  *ngIf="!companyNameRef.valid && companyNameRef.touched"
+                  class="validator"
+                >
+                  Company name cannot be empty!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label>Catch Phrase</label></td>
+              <td>:</td>
+              <td>
+                <input
+                  name="catchPhrase"
+                  type="text"
+                  [(ngModel)]="singleItemPost.company.catchPhrase"
+                  #companyCatchRef="ngModel"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label>Bs</label></td>
+              <td>:</td>
+              <td>
+                <input
+                  name="bs"
+                  type="text"
+                  [(ngModel)]="singleItemPost.company.bs"
+                  #companyBsRef="ngModel"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>:</td>
+      <td>
+        <fieldset ngModelGroup="address">
+          <table>
+            <tr>
+              <td><label>City *</label></td>
+              <td>:</td>
+              <td class="flex">
+                <input
+                  name="city"
+                  type="text"
+                  [(ngModel)]="singleItemPost.address.city"
+                  #addressCity="ngModel"
+                  required
+                />
+                <div
+                  *ngIf="!addressCity.valid && addressCity.touched"
+                  class="validator"
+                >
+                  City cannot be empty!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label>Street *</label></td>
+              <td>:</td>
+              <td class="flex">
+                <input
+                  name="street"
+                  type="text"
+                  [(ngModel)]="singleItemPost.address.street"
+                  #addressStreet="ngModel"
+                  required
+                  minlength="10"
+                />
+                <div
+                  *ngIf="!addressStreet.valid && addressStreet.touched"
+                  class="validator"
+                >
+                  Street not valid!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label>Suite *</label></td>
+              <td>:</td>
+              <td class="flex">
+                <input
+                  name="suite"
+                  type="text"
+                  [(ngModel)]="singleItemPost.address.suite"
+                  #addressSuite="ngModel"
+                  required
+                  minlength="10"
+                />
+                <div
+                  *ngIf="!addressSuite.valid && addressSuite.touched"
+                  class="validator"
+                >
+                  Suite not valid!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label>Zipcode *</label></td>
+              <td>:</td>
+              <td class="flex">
+                <input
+                  name="zipcode"
+                  type="text"
+                  [(ngModel)]="singleItemPost.address.zipcode"
+                  #addressZipcode="ngModel"
+                  required
+                  minlength="5"
+                />
+                <div
+                  *ngIf="!addressZipcode.valid && addressZipcode.touched"
+                  class="validator"
+                >
+                  Zipcode not valid!
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><label>Geo</label></td>
+              <td>:</td>
+              <td>
+                <fieldset ngModelGroup="geo">
+                  <input
+                    name="lat"
+                    type="text"
+                    [(ngModel)]="singleItemPost.address.geo.lat"
+                    #addressGeoLat="ngModel"
+                  />
+                  <input
+                    name="lng"
+                    type="text"
+                    [(ngModel)]="singleItemPost.address.geo.lng"
+                    #addressGeoLng="ngModel"
+                  />
+                </fieldset>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </td>
+    </tr>
+  </table>
+
+  <input type="submit" />
+</form>

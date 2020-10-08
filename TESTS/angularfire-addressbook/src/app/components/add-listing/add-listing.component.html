@@ -1,0 +1,22 @@
+<a routerLink="/listings">Back</a>
+<br />
+<h2 class="page-header">Add Contact</h2>
+<form (submit)="onAddSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" type="text" [(ngModel)]="name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label>email</label>
+    <input class="form-control" type="email" [(ngModel)]="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label>mobile number</label>
+    <input class="form-control" type="tel" [(ngModel)]="mobile" name="mobile" required>
+  </div>
+  <div class="form-group">
+    <label>Address</label>
+    <input class="form-control" type="text" [(ngModel)]="address" name="address" required>
+  </div>
+  <input type="submit" value="submit" class="btn btn-success">
+</form>

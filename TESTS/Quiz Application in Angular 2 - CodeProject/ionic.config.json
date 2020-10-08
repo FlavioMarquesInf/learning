@@ -1,0 +1,7 @@
+{
+  "name": "NoPonto",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,104 @@
+
+    agm-map {
+        height: 800px;
+    }
+
+    .cover-card-img {
+        object-fit: cover;
+        width: 100%; 
+        height: 200px;
+    }
+
+    @media (min-width: 400px) {
+        .container-overflow-x {
+            width: 100%;
+        }
+    }
+    @media (min-width: 700px) {
+        agm-map {
+            height: 900px;
+        }
+
+        .cover-card-img {
+            height: 400px;
+        }
+    }
+
+    .float-fab {
+        float: left;
+    }
+
+    .container-overflow-x {
+        //width: 280px;
+        text-align: center;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .post-img-container {
+        width: 100%;
+        height: 200px;
+        //background-image: url("http://i.stack.imgur.com/2OrtT.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    ion-col {
+        padding: 0;
+    }
+    ion-button .btn-tag .button-native {
+        line-height: 80%;
+        margin-bottom: 0 !important;
+        padding: 1px;
+    }
+
+    .grey-middle-tone {
+        color: #555555;
+    }
+
+    .custom-calendar {
+        background-color: #EEEEEE;
+        width: 80px;
+        margin: 0;
+    }
+
+    .custom-calendar-header {
+        background-color: #B20000;
+        padding: 2px 6px;
+        font-size: 14px;
+        color: #FFF;
+    }
+
+    .custom-calendar-body {
+        font-size: 30px;
+        background-color: #EEEEEE;
+        height: 50px;
+        padding-top: 8px;
+    }
+    .custom-calendar-footer {
+        font-size:14px;
+        top: -8px;
+        position: relative;
+        height: 10px;
+    }
+
+    .grid-container {
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        //background-color: #2196F3;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .grid-item {
+        //background-color: rgba(255, 255, 255, 0.8);
+        //border: 1px solid rgba(0, 0, 0, 0.8);
+        //padding: 20px;
+        font-size: 30px;
+        //text-align: center;
+    }
+
+    ion-card-content {
+        border-bottom: solid 1px rgba(150, 150, 150, .2);
+    }

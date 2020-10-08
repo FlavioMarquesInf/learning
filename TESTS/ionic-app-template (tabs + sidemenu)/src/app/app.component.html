@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-split-pane>
+    
+    <ion-menu>
+      <ion-header translucent>
+        <ion-toolbar>
+          <ion-title>My App</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="http://estilingada.com/wp-content/uploads/2017/07/232b238b424cbefb10b42164e03390d3.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Finn</h2>
+              <h3>I'm a big deal</h3>
+              <p>Listen, I've had a pretty messed up day...</p>
+            </ion-label>
+          </ion-item>
+          
+          <hr class="menu-separator">
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

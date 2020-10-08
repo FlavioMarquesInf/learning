@@ -1,0 +1,23 @@
+<div (click)="getMedia()">
+  <div *ngIf="imageBase64" class="cover-container">
+    <ion-img id="cover" [src]="imageBase64" *ngIf="imageBase64"></ion-img>
+    <!-- [class.blur]="inappropriateContent" -->
+  </div>
+
+  <div class="placeholder-container" *ngIf="!imageBase64">
+    <ion-icon [name]="placeholderIconName" class="placeholder-icon"></ion-icon>
+  </div>
+</div>
+
+<ion-button 
+  *ngIf="imageBase64"
+  (click)="removeMedia()"
+  color="light"
+  class="remove-button"
+  size="small">
+  <ion-icon name="trash" slot="icon-only" color="danger"></ion-icon>
+</ion-button>
+
+<input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)"
+  accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|image/*" />
+<!-- .gif,  -->

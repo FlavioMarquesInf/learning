@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "678454766547",
+    "firebase_url": "https://no-ponto-1549755661094.firebaseio.com",
+    "project_id": "no-ponto-1549755661094",
+    "storage_bucket": "no-ponto-1549755661094.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678454766547:android:9e0fa047d97ec072",
+        "android_client_info": {
+          "package_name": "com.aobatech.noponto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678454766547-kq35v2li7ueg6m26nphg9m12dffkfkq8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aobatech.noponto",
+            "certificate_hash": "8ea0d44b46e86d7611e873ebd331e86b3c6171e8"
+          }
+        },
+        {
+          "client_id": "678454766547-5cbegnr613okv76avkpue47li5fkgh4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCItj3RLTIerGwXBhmvu6waXxexISqwRf8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678454766547-5cbegnr613okv76avkpue47li5fkgh4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

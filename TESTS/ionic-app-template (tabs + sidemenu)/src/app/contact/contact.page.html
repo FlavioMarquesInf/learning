@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- ionic 4 way -->
+  <ion-list>
+    <ion-item *ngFor="let chatUser of chatUsers" (click)="openChat(chatUser)">
+      <ion-avatar slot="start">
+        <img [src]="chatUser.avatarImg">
+      </ion-avatar>
+      <div class="input-wrapper" style="margin: 0 !important; padding: 0 !important;">
+        <ion-label>
+          <h2>{{ chatUser.name }}</h2>
+          <p class="dots">{{ chatUser.lastMessage }}</p>
+        </ion-label>
+      </div>
+      <ion-note item-end class="note" style="font-size: 12px;">
+        <ion-icon name="time"></ion-icon>
+        {{chatUser.time}}
+      </ion-note>
+    </ion-item>
+
+
+  </ion-list>
+
+
+  <!-- ionic 3 way -->
+  <!-- <ion-list>
+    <ion-item-sliding #item *ngFor="let chatUser of chatUsers">
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="chatUser.avatarImg">
+        </ion-avatar>
+        <div class="item-inner">
+          <div class="input-wrapper">
+            <ion-label class="label">
+              <h2>{{ chatUser.name }}</h2>
+              <p>{{ chatUser.lastMessage }}</p>
+            </ion-label>
+          </div>
+          <ion-note item-end class="note">
+            <ion-icon name="time"></ion-icon>
+            {{chatUser.time}}
+          </ion-note>
+        </div>
+        <div class="button-effect"></div>
+      </ion-item>
+
+      <ion-item-options side="left">
+        <button ion-button (click)="favorite(item)">Favorite</button>
+        <button ion-button color="danger" (click)="share(item)">Share</button>
+      </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button (click)="unread(item)">Unread</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
+
+  
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="newChat()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<!-- <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" class="float-fab">
+  <ion-fab-button>
+    <ion-icon name="chatbubbles"></ion-icon>
+  </ion-fab-button>
+
+  <ion-fab-list side="start">
+    <ion-fab-button>
+      <ion-icon name="logo-vimeo"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="logo-vimeo"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+
+  <ion-fab-list side="top">
+    <ion-fab-button>
+      <ion-icon name="logo-vimeo"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="logo-vimeo"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab> -->
+
+
+</ion-content>

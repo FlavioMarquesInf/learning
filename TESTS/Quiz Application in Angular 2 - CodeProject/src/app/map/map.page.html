@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+   <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pontos de Onibus</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<agm-map [zoom]="zoom" 
+[disableDefaultUI]= "false" 
+[zoomControl]="true" [latitude]="lat" 
+[longitude]="lng" (mapClick)="mapClicked($event)">
+</agm-map>
+
+<ion-fab vertical="bottom" horizontal="start" style="top:-60px; position: relative">
+<ion-fab-button>
+  <ion-icon name="add"></ion-icon>
+</ion-fab-button>
+
+  <ion-fab-list side="top">
+    <ion-fab-button>
+      <ion-img src="assets/marker-add-icon.fw.png" style="height: 32px"></ion-img>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-img src="assets/marker-remov-icon.fw.png" style="height: 32px"></ion-img>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-img src="assets/bus-stop.fw.png" style="height: 32px"></ion-img>
+    </ion-fab-button>
+  </ion-fab-list>
+
+  
+</ion-fab>
+</ion-content>
+

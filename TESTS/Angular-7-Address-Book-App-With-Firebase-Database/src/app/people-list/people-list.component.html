@@ -1,0 +1,39 @@
+<div>
+    <form class="mb-5 form-inline">
+        <mat-form-field style="width: 90%;"> 
+          <input matInput name="searchInput" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 100%;">
+          <mat-placeholder style="color:white">Search People</mat-placeholder>
+        </mat-form-field>
+        <button class="btn btn-outline-primary search-close-x" (click)="searchText=''">X</button>
+    </form>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Location</th>
+          <th>Edit / Delete</th>
+        </thead>
+        <ng-container *ngFor="let people of peopleArray">
+          <tr *ngIf="filterCondition(people)">
+            <td>{{people.fullName}}</td>
+            <td>{{people.email}}</td>
+            <td>{{people.mobile}}</td>
+            <td>{{people.location}}</td>
+            <td>
+              <button class="btn btn-outline-info"(click)="peopleService.populateForm(people)">Edit</button>
+              <button class="btn btn-outline-danger"(click)="onDelete(people.$key)">Delete</button>
+            </td>
+      
+          </tr>
+        </ng-container>
+        <div class="alert alert-danger" *ngIf="showDeleteMessage">
+          Deleted successfully.
+        </div>
+      </table>
+    </div>
+</div>
+
+
+

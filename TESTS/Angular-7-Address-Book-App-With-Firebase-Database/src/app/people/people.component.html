@@ -1,0 +1,57 @@
+<div class="row components-wrap">
+  <div class="col-sm-12 col-md-12 col-lg-2 people-component-wrap">
+    <form [formGroup]="this.peopleService.form" (ngSubmit)="onSubmit()">
+      
+      <input type="hidden" formControlName="$key">
+
+        <div class="form-group">
+          <mat-form-field>
+            <input style="color:white;" matInput formControlName="fullName" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.fullName.errors}">
+            <mat-placeholder style="color:white">Full Name</mat-placeholder>
+            <div class="invalid-feedback" *ngIf="submitted && formControls.fullName.errors">This field is required</div>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field> 
+            <input style="color:white;" matInput formControlName="email" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.email.errors}">
+            <mat-placeholder style="color:white">Email</mat-placeholder>
+            <div class="invalid-feedback" *ngIf="submitted && formControls.email.errors">Invalid Email Address</div>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field> 
+            <input style="color:white;" matInput formControlName="mobile" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.mobile.errors}">
+            <mat-placeholder style="color:white">Mobile</mat-placeholder>
+            <div class="invalid-feedback" *ngIf="submitted && formControls.mobile.errors">
+              <label *ngIf="formControls.mobile.errors.required">This field is required.</label>
+              <label *ngIf="formControls.mobile.errors.minlength">At least 8 numbers.</label>
+            </div>
+          </mat-form-field>
+            
+          
+        </div>
+
+        <div class="form-group">
+          <mat-form-field> 
+            <input style="color:white;" matInput formControlName="location" class="form-control">
+            <mat-placeholder style="color:white">Location</mat-placeholder>
+          </mat-form-field>
+        </div>
+
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </div>
+    </form>
+    <div class="alert alert-info" *ngIf="showSuccessMessage">
+        Submitted successfully.
+    </div>
+  </div>
+  
+  <div class="col-sm-12 col-md-12 col-lg-9 people-list-component-wrap">
+    <app-people-list></app-people-list>
+  </div>
+</div>
+

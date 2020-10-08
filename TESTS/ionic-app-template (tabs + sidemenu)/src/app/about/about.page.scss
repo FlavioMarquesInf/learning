@@ -1,0 +1,15 @@
+// ion-content {
+//     background: #111;
+// }
+
+.gradient-bg {
+    // background: linear-gradient(to top, #222 0%, #000 100%);
+    background: radial-gradient(#222 0%, #000 100%);
+}
+
+.image-bg {
+    background-image: url('../../assets/img/365da6fc6feb9fede4f70b14d4efd71a.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

@@ -1,0 +1,297 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+
+      <ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </ion-button>
+
+
+    </ion-buttons>
+
+    <ion-title color="primary" *ngIf="!isSearchbarOpened">
+      Home
+    </ion-title>
+
+
+
+    <ion-searchbar 
+      *ngIf="isSearchbarOpened && viewMode=='map'" 
+      [showCancelButton]="true" 
+      (search)="onSearch($event)" 
+      (ionCancel)="isSearchbarOpened=false"
+      placeholder="Buscar por endereço">
+    </ion-searchbar>
+
+    <ion-searchbar 
+      *ngIf="isSearchbarOpened && viewMode=='feeds'" 
+      [showCancelButton]="true" 
+      (search)="onSearch($event)" 
+      (ionCancel)="isSearchbarOpened=false"
+      placeholder="Procurar">
+    </ion-searchbar>
+
+  </ion-toolbar>
+
+  <ion-toolbar color="primary">
+
+
+      <ion-segment [(ngModel)]="viewMode" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="feeds">
+          <ion-icon name="list"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="map">
+          <ion-icon name="map"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content style="background-color: #EEE">
+
+  <div [ngSwitch]="viewMode" style="height:100%; margin:0;">
+    <ion-list *ngSwitchCase="'feeds'" style="background-color: #EEE" style="padding-top: 10px;">
+
+
+      <div *ngFor="let socialEvent of socialEvents" style="background-color: #FFF; border-bottom: solid 4px rgba(100,100,100,0.6)">
+        <ion-item class="item item-block item-md">
+        
+          <ion-avatar item-start (click)="showProfile(socialEvent)">
+            <img [src]="socialEvent.userThumbnail">
+          </ion-avatar>
+
+          <div class="item-inner">
+            <div class="input-wrapper">
+              <ion-label class="label label-md" style="padding-left:12px;">
+
+                <h2 text-capitalize>{{ socialEvent.userDisplayName }} 
+                  <!-- <span class="grey-middle-tone" style="font-size: 12px;">@{{socialEvent.userNickname}}</span> -->
+                </h2>
+                <p><ion-icon name="globe"></ion-icon> · {{ socialEvent.eventType }} </p>
+              </ion-label>
+            </div>
+
+          </div>
+          <div class="button-effect"></div>
+          <ion-col text-right style="font-size:12px;" class="grey-middle-tone">
+              {{ socialEvent.time }} atrás
+          </ion-col>
+
+          <ion-buttons position="end">
+            <ion-button icon-only>
+              <ion-icon name="ios-more"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+
+
+
+        <ion-slides [pager]="socialEvent.imgs.length > 1" class="fixed" >
+          <ion-slide *ngFor="let img of socialEvent.imgs">
+            <div class="post-img-container">
+              <ion-img [src]="img.imgUrl" class="cover-card-img" (click)="showImageFullScreen(img)"></ion-img>
+            </div>​
+          </ion-slide>
+        </ion-slides>
+
+        <div>
+          <div class="grid-container">
+            <div class="grid-item" text-center>
+              <div class="custom-calendar">
+                <div class="custom-calendar-header">{{ socialEvent.month }}</div>
+                <div class="custom-calendar-body">{{ socialEvent.day }}</div>
+              </div>
+              <span class="custom-calendar-footer grey-middle-tone">{{ socialEvent.year }}</span>
+            </div>
+
+            <div class="grid-item" style="padding-left: 14px;">
+              <div>{{ socialEvent.title }}</div>
+              <p style="font-size: 14px;">
+                <span class="grey-middle-tone">
+                  <ion-icon name="pin"></ion-icon> {{ socialEvent.address }} · 
+                  {{ socialEvent.distance }} km de distância
+                  <br>
+                  <span style="line-height: 200%;"> {{ socialEvent.fullAddress }} </span>
+                </span>
+              </p>
+
+            </div>
+
+          
+
+          </div>
+
+              <div class="container-overflow-x" *ngIf="true">
+                <ion-button *ngFor="let tagName of socialEvent.tags" 
+                  (click)="filterByTag(tagName)" 
+                  class="btn-tag"
+                  shape="round" 
+                  color="primary" 
+                  fill="outline" 
+                  size="small">
+                    <ion-icon name="pricetag"></ion-icon>
+                  {{ tagName }}
+                </ion-button>
+              </div>
+
+          <ion-row no-padding>
+            <ion-col text-center>
+              <ion-button icon-start clear small fill="none" class="card-button">
+                <ion-icon name="help"></ion-icon>
+                <div>20</div>
+              </ion-button>
+
+              <ion-button icon-start clear small fill="none" class="card-button">
+                <ion-icon name="transgender"></ion-icon>
+                <div>8</div>
+              </ion-button>
+
+              <ion-button icon-start clear small fill="none" class="card-button">
+                <ion-icon name="male"></ion-icon>
+                <div>14</div>
+              </ion-button>
+
+              <ion-button icon-start clear small fill="none" class="card-button">
+                <ion-icon name="female"></ion-icon>
+                <div>18</div>
+              </ion-button>
+            </ion-col>
+
+
+            
+          </ion-row>
+          <div text-center style="border-bottom: 1px solid rgba(150,150,150,0.2)">
+            <ion-button color="danger" fill="outline" (click)="dismiss(socialEvent)">Dispensar</ion-button>
+            <ion-button color="success" fill="outline" (click)="join(socialEvent)">Participarei</ion-button>
+          </div>
+
+
+
+        </div>
+
+        
+        <ion-row no-padding>
+
+          <ion-col text-center>
+            <ion-button icon-start clear fill="none" class="card-button"
+              (click)="listParticipants(socialEvent)">
+              <ion-icon name="people"></ion-icon>
+              <div>76</div>
+            </ion-button>
+          </ion-col>
+
+          <ion-col text-left>
+            <ion-button icon-start clear fill="none" class="card-button"
+              (click)="listViewers(socialEvent)">
+              <ion-icon name="eye"></ion-icon>
+              <div>423</div>
+            </ion-button>
+          </ion-col>
+
+
+          <ion-col text-center>
+            <ion-button icon-start clear fill="none" class="card-button" (click)="like(socialEvent)"
+              (click)="like(socialEvent)">
+              <ion-icon name="heart" [color]="'danger'"></ion-icon>
+              <div>231</div>
+            </ion-button>
+          </ion-col>
+
+
+          <ion-col text-center>
+            <ion-button icon-start clear fill="none" class="card-button"
+              (click)="listComments(socialEvent)">
+              <ion-icon name="text"></ion-icon>
+              <div>72</div>
+            </ion-button>
+          </ion-col>
+
+          <ion-col text-right>
+            <ion-button clear color="primary" icon-left small fill="none" class="card-button"
+              (click)="share(socialEvent)">
+              <ion-icon name="share-alt" role="img" aria-label="share alt"></ion-icon>
+              <div class="button-inner">6</div>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        
+      </div>
+
+      <div *ngIf="false">
+        <!-- somente para consulta, temporário -->
+        <ion-button routerLink="/profile" shape="round" color="primary" fill="outline">
+          Profile
+        </ion-button>
+        <br>
+        <ion-button routerLink="/profile" shape="round" color="primary" fill="outline">
+          Profile
+        </ion-button>
+      </div>
+
+    </ion-list>
+
+
+
+    <ion-list *ngSwitchCase="'map'">
+
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+      
+        <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng"
+          [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+      
+          <agm-info-window>
+            <strong>InfoWindow content</strong>
+          </agm-info-window>
+      
+        </agm-marker>
+      
+        <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+        </agm-circle>
+      
+      </agm-map>
+    </ion-list>
+  </div><!-- final ion-segment -->
+
+  
+<!-- <div padding> -->
+
+
+
+  <!-- <ion-button routerLink="/profile" shape="round" color="primary" fill="outline">
+    Profile
+  </ion-button> -->
+
+  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" class="float-fab">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="start">
+      <ion-fab-button>
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+<!-- </div> -->
+</ion-content>
